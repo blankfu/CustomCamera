@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
                         grantResults[1] == PackageManager.PERMISSION_GRANTED) {
                     Toast.makeText(this, "已获取权限", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(this, "您拒绝权限，无法保存图片", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "您拒绝权限", Toast.LENGTH_SHORT).show();
                 }
             }
         }
