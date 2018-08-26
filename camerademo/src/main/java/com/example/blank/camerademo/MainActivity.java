@@ -35,8 +35,6 @@ public class MainActivity extends AppCompatActivity {
     private Camera mCamera;
     private Button mCapture;
 
-    private boolean isSafeCapture = true;
-
     private int cameraID = Camera.CameraInfo.CAMERA_FACING_BACK;//后置摄像头
     private static final int REQUEST_CODE_PERMISSION = 0x001;
     private ImageView imageView;
@@ -50,9 +48,10 @@ public class MainActivity extends AppCompatActivity {
             getPermission();
         }
         mCapture.setOnClickListener(v -> {
-                    if (isSafeCapture) {
+                    try {
                         mCamera.takePicture(null, null, mPictureCallback);
-                        isSafeCapture = false;
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                 }
         );
@@ -157,7 +156,6 @@ public class MainActivity extends AppCompatActivity {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            isSafeCapture = true;
         }
     };
 
