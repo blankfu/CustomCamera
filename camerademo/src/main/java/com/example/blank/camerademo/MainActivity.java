@@ -80,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
 
     /*private String mFilePath = Environment.getExternalStorageDirectory().getPath() + "/photo.png";
 
+    //调用相机应用拍照
     private void takePhotoBySystemCamera() {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         File file = new File(mFilePath);
@@ -139,23 +140,24 @@ public class MainActivity extends AppCompatActivity {
                     bitmap.getWidth(), bitmap.getHeight(), matrix, true);
 
 
-            imageView.setImageBitmap(matrixBitmap);
+            /*imageView.setImageBitmap(matrixBitmap);
             imageView.setVisibility(View.VISIBLE);
-            frameLayout.setVisibility(View.GONE);
+            frameLayout.setVisibility(View.GONE);*/
 
-            String name = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.CHINA).format
-                    (new Date()
-                    ) + ".jpg";
+            String name = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINA).format
+                    (new Date()) + ".jpg";
             String path = Environment.getExternalStorageDirectory().getAbsolutePath() + File
                     .separator + name;
             File file = new File(path);
             try {
                 FileOutputStream outputStream = new FileOutputStream(file);
-                matrixBitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
+                matrixBitmap.compress(Bitmap.CompressFormat.JPEG, 80, outputStream);
                 outputStream.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            Toast.makeText(MainActivity.this, "保存成功： path：" + file.getAbsolutePath(), Toast
+                    .LENGTH_SHORT).show();
         }
     };
 

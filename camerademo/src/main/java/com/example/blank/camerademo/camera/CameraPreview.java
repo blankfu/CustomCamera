@@ -38,7 +38,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
 
         List<Camera.Size> supportedPictureSizes = parameters.getSupportedPictureSizes();
         /*获取相机第一个尺寸（大尺寸的图）*/
-        Camera.Size mSize = supportedPictureSizes.get(0);
+        Camera.Size mSize = supportedPictureSizes.get(supportedPictureSizes.size()/2);
 
         if (this.getResources().getConfiguration().orientation != Configuration
                 .ORIENTATION_LANDSCAPE) {
